@@ -44,7 +44,7 @@
                             <td>{{ $row->created_at->format('D M Y') }}</td>
                             <td>
                                 <button type="button" class="btn btn-danger">Delete</button>
-                                <button type="button" class="btn btn-info">Edit</button>
+                                <a href="/tampilkandata/{{ $row->id }}" class="btn btn-info">Edit</a>
                             </td>
                         </tr>
                 </tbody>
