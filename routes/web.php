@@ -19,3 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/pegawai', [EmployeeController::class, 'index'])->name('pegawai');
+
+//Route untuk menampilkan form tambah data
+Route::get('/tambahpegawai', [EmployeeController::class, 'tambahpegawai'])->name('tambahpegawai');
+Route::post('/insertdata', [EmployeeController::class, 'insertdata'])->name('insertdata');
