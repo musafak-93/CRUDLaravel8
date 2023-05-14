@@ -51,7 +51,8 @@
                         <td>{{ $row->created_at->format('D M Y') }}</td>
                         <td>
                             <a href="/tampilkandata/{{ $row->id }}" class="btn btn-info">Edit</a>
-                            <a href="/delete/{{ $row->id }}" class="btn btn-danger">Delete</a>
+                            <a href="#" class="btn btn-danger delete" data-id="{{$row->id}}"
+                                data-nama="{{$row->nama}}">Delete</a>
                         </td>
                     </tr>
                 </tbody>
@@ -65,6 +66,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
+        integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
@@ -76,5 +81,30 @@
     </script>
     -->
 </body>
+<script>
+    $('.delete').click(function () {
+        var pegawaiid = $(this).attr('data-id');
+        var nama = $(this).attr('data-nama');
+
+        swal({
+                title: "Yakin ?",
+                text: "Kamu akan menghapus data pegawai dengan " + nama + "",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location = "/delete/" + pegawaiid + ""
+                    swal("Data berhasil dihapus", {
+                        icon: "success",
+                    });
+                } else {
+                    swal("Data tidak jadi dihapus");
+                }
+            });
+    });
+
+</script>
 
 </html>
