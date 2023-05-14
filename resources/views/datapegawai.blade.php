@@ -20,13 +20,21 @@
     <h1 class="text-center mb-4 mt-4">Data Pegawai</h1>
     <div class="container">
         <a href="/tambahpegawai" class="btn btn-success">Tambah +</a>
+        <div class="row g-3 align-items-center mt-2">
+            <div class="col-auto">
+                <form action="/pegawai" method="GET">
+                    <input type="search" id="inputPassword6" name="search" class="form-control"
+                        aria-labelledby="passwordHelpInline">
+                </form>
+            </div>
+        </div>
         <div class="row">
             {{-- alert/notifikasi model lama muncul terus --}}
             {{-- @if ($message = Session::get('success'))
                 <div class="alert alert-success mt-2" role="alert">
                     {{ $message }}
-                </div>
-            @endif --}}
+        </div>
+        @endif --}}
             <table class="table">
                 <thead>
                     <tr>
@@ -43,9 +51,9 @@
                     @php
                         $no = 1;
                     @endphp
-                    @foreach ($data as $row)
+                    @foreach ($data as $index => $row)
                         <tr>
-                            <th scope="row">{{ $no++ }}</th>
+                            <th scope="row">{{ $index + $data->firstItem() }}</th>
                             <td>{{ $row->nama }}</td>
                             <td>
                                 <img src="{{ asset('fotopegawai/' . $row->foto) }}" alt="" style="width: 40px;">
@@ -62,6 +70,7 @@
                 </tbody>
                 @endforeach
             </table>
+            {{ $data->links() }}
         </div>
     </div>
     <!-- Optional JavaScript; choose one of the two! -->
