@@ -19,15 +19,16 @@
         <a href="/tambahpegawai" class="btn btn-success">Tambah +</a>
         <div class="row">
             @if ($message = Session::get('success'))
-                <div class="alert alert-success mt-2" role="alert">
-                    {{ $message }}
-                </div>
+            <div class="alert alert-success mt-2" role="alert">
+                {{ $message }}
+            </div>
             @endif
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nama</th>
+                        <th scope="col">Foto</th>
                         <th scope="col">Jenis Kelamin</th>
                         <th scope="col">No Telpon</th>
                         <th scope="col">Dibuat</th>
@@ -36,20 +37,23 @@
                 </thead>
                 <tbody>
                     @php
-                        $no = 1;
+                    $no = 1;
                     @endphp
                     @foreach ($data as $row)
-                        <tr>
-                            <th scope="row">{{ $no++ }}</th>
-                            <td>{{ $row->nama }}</td>
-                            <td>{{ $row->jeniskelamin }}</td>
-                            <td>0{{ $row->notelpon }}</td>
-                            <td>{{ $row->created_at->format('D M Y') }}</td>
-                            <td>
-                                <a href="/tampilkandata/{{ $row->id }}" class="btn btn-info">Edit</a>
-                                <a href="/delete/{{ $row->id }}" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
+                    <tr>
+                        <th scope="row">{{ $no++ }}</th>
+                        <td>{{ $row->nama }}</td>
+                        <td>
+                            <img src="{{asset('fotopegawai/'.$row->foto)}}" alt="" style="width: 40px;">
+                        </td>
+                        <td>{{ $row->jeniskelamin }}</td>
+                        <td>0{{ $row->notelpon }}</td>
+                        <td>{{ $row->created_at->format('D M Y') }}</td>
+                        <td>
+                            <a href="/tampilkandata/{{ $row->id }}" class="btn btn-info">Edit</a>
+                            <a href="/delete/{{ $row->id }}" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
                 </tbody>
                 @endforeach
             </table>
