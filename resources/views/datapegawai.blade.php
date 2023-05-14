@@ -9,6 +9,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.rtl.min.css"
         integrity="sha384-T5m5WERuXcjgzF8DAb7tRkByEZQGcpraRTinjpywg37AO96WoYN9+hrhDVoM6CaT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+        integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>Data Pegawai</title>
 </head>
@@ -18,11 +21,12 @@
     <div class="container">
         <a href="/tambahpegawai" class="btn btn-success">Tambah +</a>
         <div class="row">
-            @if ($message = Session::get('success'))
-            <div class="alert alert-success mt-2" role="alert">
-                {{ $message }}
-            </div>
-            @endif
+            {{-- alert/notifikasi model lama muncul terus --}}
+            {{-- @if ($message = Session::get('success'))
+                <div class="alert alert-success mt-2" role="alert">
+                    {{ $message }}
+                </div>
+            @endif --}}
             <table class="table">
                 <thead>
                     <tr>
@@ -37,24 +41,24 @@
                 </thead>
                 <tbody>
                     @php
-                    $no = 1;
+                        $no = 1;
                     @endphp
                     @foreach ($data as $row)
-                    <tr>
-                        <th scope="row">{{ $no++ }}</th>
-                        <td>{{ $row->nama }}</td>
-                        <td>
-                            <img src="{{asset('fotopegawai/'.$row->foto)}}" alt="" style="width: 40px;">
-                        </td>
-                        <td>{{ $row->jeniskelamin }}</td>
-                        <td>0{{ $row->notelpon }}</td>
-                        <td>{{ $row->created_at->format('D M Y') }}</td>
-                        <td>
-                            <a href="/tampilkandata/{{ $row->id }}" class="btn btn-info">Edit</a>
-                            <a href="#" class="btn btn-danger delete" data-id="{{$row->id}}"
-                                data-nama="{{$row->nama}}">Delete</a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <th scope="row">{{ $no++ }}</th>
+                            <td>{{ $row->nama }}</td>
+                            <td>
+                                <img src="{{ asset('fotopegawai/' . $row->foto) }}" alt="" style="width: 40px;">
+                            </td>
+                            <td>{{ $row->jeniskelamin }}</td>
+                            <td>0{{ $row->notelpon }}</td>
+                            <td>{{ $row->created_at->format('D M Y') }}</td>
+                            <td>
+                                <a href="/tampilkandata/{{ $row->id }}" class="btn btn-info">Edit</a>
+                                <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}"
+                                    data-nama="{{ $row->nama }}">Delete</a>
+                            </td>
+                        </tr>
                 </tbody>
                 @endforeach
             </table>
@@ -66,10 +70,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
-        integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
@@ -81,8 +90,9 @@
     </script>
     -->
 </body>
+{{-- Script untuk alert jika ingin menghapus data --}}
 <script>
-    $('.delete').click(function () {
+    $('.delete').click(function() {
         var pegawaiid = $(this).attr('data-id');
         var nama = $(this).attr('data-nama');
 
@@ -104,7 +114,13 @@
                 }
             });
     });
+</script>
 
+{{-- Alert untuk insert data --}}
+<script>
+    @if (Session::has('success'))
+        toastr.success("{{ Session::get('success') }}")
+    @endif
 </script>
 
 </html>
