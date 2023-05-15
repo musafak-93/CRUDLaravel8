@@ -27,6 +27,9 @@
                         aria-labelledby="passwordHelpInline">
                 </form>
             </div>
+            <div class="col-auto">
+                <a href="/exportpdf" class="btn btn-info">Export PDF</a>
+            </div>
         </div>
         <div class="row">
             {{-- alert/notifikasi model lama muncul terus --}}
