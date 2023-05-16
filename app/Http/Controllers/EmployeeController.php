@@ -30,6 +30,12 @@ class EmployeeController extends Controller
     {
         //untuk testing
         // dd($request->all());
+        $this->validate($request, [
+            'nama' => 'required|min:7|max:20',
+            'jeniskelamin' => 'required',
+            'notelpon' => 'required|min:11|max:12',
+            'foto' => 'required',
+        ]);
         $data = Employee::create($request->all());
         if ($request->hasFile('foto')) {
             $request->file('foto')->move('fotopegawai/', $request->file('foto')->getClientOriginalName());

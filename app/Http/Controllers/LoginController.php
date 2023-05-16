@@ -29,6 +29,12 @@ class LoginController extends Controller
 
     public function registeruser(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required|min:7|max:20',
+            'email' => 'required',
+            'password' => 'required|min:8|max:12',
+        ]);
+
         User::create([
             'name' => $request->name,
             'email' => $request->email,
