@@ -83,6 +83,8 @@
                             <th scope="col">Foto</th>
                             <th scope="col">Jenis Kelamin</th>
                             <th scope="col">No Telpon</th>
+                            <th scope="col">Tanggal Lahir</th>
+                            <th scope="col">Agama</th>
                             <th scope="col">Dibuat</th>
                             <th scope="col">Aksi</th>
                         </tr>
@@ -100,6 +102,8 @@
                                 </td>
                                 <td>{{ $row->jeniskelamin }}</td>
                                 <td>0{{ $row->notelpon }}</td>
+                                <td>{{ $row->tanggal_lahir }}</td>
+                                <td>{{ $row->religions->nama }}</td>
                                 <td>{{ $row->created_at->format('D M Y') }}</td>
                                 <td>
                                     <a href="/tampilkandata/{{ $row->id }}" class="btn btn-info">Edit</a>

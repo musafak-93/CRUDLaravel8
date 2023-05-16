@@ -259,6 +259,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="/datareligion" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Data Religions
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="/logout" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>

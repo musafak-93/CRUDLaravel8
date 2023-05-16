@@ -21,6 +21,14 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Tanggal lahir</label>
+                                    <input type="date" name="tanggal_lahir" class="form-control" id="exampleInputEmail1"
+                                        aria-describedby="emailHelp">
+                                    @error('tanggal_lahir')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Jenis Kelamin</label>
                                     <select class="form-select" name="jeniskelamin" id="floatingSelect"
                                         aria-label="Floating label select example">
@@ -29,6 +37,19 @@
                                         <option value="Perempuan">Perempuan</option>
                                     </select>
                                     @error('jeniskelamin')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Agama</label>
+                                    <select class="form-select" name="id_religions" id="floatingSelect"
+                                        aria-label="Floating label select example">
+                                        <option selected>Pilih Agama</option>
+                                        @foreach ($dataagama as $data)
+                                            <option value="{{ $data->id }}">{{ $data->nama }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('id_religions')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
