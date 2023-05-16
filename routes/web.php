@@ -25,7 +25,14 @@ Route::get('/', function () {
 })->middleware('auth');
 
 //menampilkan data
-Route::get('/pegawai', [EmployeeController::class, 'index'])->name('pegawai')->middleware('auth');
+Route::get('/pegawai', [EmployeeController::class, 'index'])->name('pegawai');
+
+Route::group(['middleware' => ['auth', 'hakakses:admin']], function () {
+    Route::get('/datareligion', [ReligionController::class, 'index'])->name('datareligion')->middleware('auth');
+    Route::get('/tambahagama', [ReligionController::class, 'create'])->name('tambahagama');
+
+    Route::post('/insertdatareligion', [ReligionController::class, 'store'])->name('insertdatareligion');
+});
 
 //Route untuk menampilkan form tambah data
 Route::get('/tambahpegawai', [EmployeeController::class, 'tambahpegawai'])->name('tambahpegawai');
@@ -56,10 +63,3 @@ Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/registeruser', [LoginController::class, 'registeruser'])->name('registeruser');
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-
-
-
-Route::get('/datareligion', [ReligionController::class, 'index'])->name('datareligion')->middleware('auth');
-Route::get('/tambahagama', [ReligionController::class, 'create'])->name('tambahagama');
-
-Route::post('/insertdatareligion', [ReligionController::class, 'store'])->name('insertdatareligion');
