@@ -37,3 +37,6 @@ Route::get('/exportpdf', [EmployeeController::class, 'exportpdf'])->name('export
 
 //Export Excel
 Route::get('/exportexcel', [EmployeeController::class, 'exportexcel'])->name('exportexcel');
+
+//Import Excel
+Route::post('/importexcel', [EmployeeController::class, 'importexcel'])->name('importexcel');
