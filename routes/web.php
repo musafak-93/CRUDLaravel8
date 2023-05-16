@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
+use App\Models\Employee;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,10 @@ use App\Http\Controllers\EmployeeController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $jumlahpegawai = Employee::count();
+    $jumlahpegawaicowo = Employee::where('jeniskelamin', 'laki-laki')->count();
+    $jumlahpegawaicewe = Employee::where('jeniskelamin', 'perempuan')->count();
+    return view('welcome', compact('jumlahpegawai', 'jumlahpegawaicowo', 'jumlahpegawaicewe'));
 });
 
 //menampilkan data

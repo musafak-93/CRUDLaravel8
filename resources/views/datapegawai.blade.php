@@ -1,5 +1,14 @@
 @extends('layout.admin')
 
+@push('css')
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.rtl.min.css"
+        integrity="sha384-T5m5WERuXcjgzF8DAb7tRkByEZQGcpraRTinjpywg37AO96WoYN9+hrhDVoM6CaT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+        integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+@endpush
+
 @section('content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -58,7 +67,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                    <button type="submit" class="btn btn-primary">Import</button>
                                 </div>
                             </form>
                         </div>
@@ -66,16 +75,10 @@
                 </div>
             </div>
             <div class="row">
-                {{-- alert/notifikasi model lama muncul terus --}}
-                {{-- @if ($message = Session::get('success'))
-                <div class="alert alert-success mt-2" role="alert">
-                    {{ $message }}
-        </div>
-        @endif --}}
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">NO</th>
                             <th scope="col">Nama</th>
                             <th scope="col">Foto</th>
                             <th scope="col">Jenis Kelamin</th>
@@ -111,7 +114,9 @@
             </div>
         </div>
     </div>
+@endsection
 
+@push('scripts')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
@@ -157,4 +162,4 @@
             toastr.success("{{ Session::get('success') }}")
         @endif
     </script>
-@endsection
+@endpush
