@@ -46,6 +46,8 @@
             <th>Nama</th>
             <th>Jenis Kelamin</th>
             <th>No Telpon</th>
+            <th>Tanggal Lahir</th>
+            <th>Agama</th>
         </tr>
         @php
             $no = 1;
@@ -56,6 +58,8 @@
                 <td>{{ $row->nama }}</td>
                 <td>{{ $row->jeniskelamin }}</td>
                 <td>{{ $row->notelpon }}</td>
+                <td>{{ $row->tanggal_lahir }}</td>
+                <td>{{ $row->religions->nama }}</td>
             </tr>
         @endforeach
     </table>
