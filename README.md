@@ -8,7 +8,7 @@
 </p>
 
 # Dasboard Admin Data Pegawai
-Dasboard admin pegawai merupakan dasboard untuk mengelola data pegawai di suatu perusahaan dengan memiliki fitur CRUDS, export pdf, export excel dan import data excel. Dikembangkan menggunakan framework laravel 8 dan template AdminLTE
+Dasboard admin pegawai merupakan dasboard untuk mengelola data pegawai di suatu perusahaan. Dikembangkan menggunakan framework laravel 8 dan template AdminLTE
 
 ## Features
 
