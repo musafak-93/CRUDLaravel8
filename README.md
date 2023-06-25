@@ -7,58 +7,69 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+# Dasboard Admin Data Pegawai
+Dasboard admin pegawai merupakan dasboard untuk mengelola data pegawai di suatu perusahaan dengan memiliki fitur CRUDS, export pdf, export excel dan import data excel. Dikembangkan menggunakan framework laravel 8 dan template AdminLTE
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Login
+- Register
+- Logout
+- Dasboard AdminLTE
+- Export PDF
+- Export Excel
+- Import Data Excel
+- Middleware/Hak Akses
+- Relations Database
+- CRUDS data di halaman admin
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## System Requirements
+- PHP => 7.4.15
+- Laravel => 8
+- MySQL => 5.7.33
+- Laragon
+- Visual studio code
 
-## Learning Laravel
+## Installation
+Install my-project with clone using link HTTP Github
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Clone the repository
+  ```bash
+  git clone https://github.com/musafak-93/CRUDLaravel8.git
+  ```
+- Install dependencies using composer install
+  ```bash
+  composer install
+  ```
+- Copy the .env.example file to .env
+  ```bash
+  cp .env.example .env
+  ```
+- Generate the APP_KEY.
+  ```bash
+  php artisan key:generate
+  ```
+- Create database in PhpMyAdmin and update name database in file .env
+- Run php artisan migrate to migrate the database
+  ```bash
+  php artisan migrate
+  ```
+- Run php artisan serve
+  ```bash
+  php artisan serve
+  ```
+    
+## Screenshots
+- Login
+  ![image](https://github.com/musafak-93/CRUDLaravel8/assets/62982123/8521c18c-bbbf-4489-9ea0-d47065402104)
+- Register
+  ![image](https://github.com/musafak-93/CRUDLaravel8/assets/62982123/cdc52b51-aa43-40f6-999b-267a048f25c7)
+- Dasboard Admin
+  ![image](https://github.com/musafak-93/CRUDLaravel8/assets/62982123/7120afa8-a561-49ae-8422-42b810a274e5)
+- Data Pegawai
+  ![image](https://github.com/musafak-93/CRUDLaravel8/assets/62982123/fe32132a-f767-458d-9266-8026dcc841f7)
+- Data Religions
+  ![image](https://github.com/musafak-93/CRUDLaravel8/assets/62982123/762b7306-5d66-4963-abb6-0b540f778f24)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Feedback
+If you have any feedback, please reach out to us at mus.safak93@gmail.com
